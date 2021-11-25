@@ -8,9 +8,26 @@ const binarySearch = (items: any[], item: any): number => {
 
     while (lowestIndex <= highestIndex){
         var middleIndex = Math.floor((highestIndex + lowestIndex)/2);
-    }
-
-    return NO_MATCH;
+        if (items[middleIndex] == item) {
+            console.log("Lowest: " + lowestIndex)
+            console.log("Highest: " + highestIndex)
+            console.log("Mid: " + middleIndex)
+            completed = true
+            return middleIndex;
+        } else if (items[middleIndex] < item){
+            lowestIndex = middleIndex + 1;
+            console.log("Lowest: " + lowestIndex)
+            console.log("Highest: " + highestIndex)
+            console.log("Mid: " + middleIndex)
+        } else {
+            lowestIndex = middleIndex - 1;
+            console.log("Lowest: " + lowestIndex)
+            console.log("Highest: " + highestIndex)
+            console.log("Mid: " + middleIndex)
+        }
+    } return NO_MATCH;
+    
+    
 }
 
 export default binarySearch;
