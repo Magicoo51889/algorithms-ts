@@ -6,7 +6,7 @@ const binarySearch = (items: any[], item: any): number => {
     var completed:boolean = false
 
 
-    while (lowestIndex <= highestIndex){
+    while (lowestIndex <= highestIndex){ // Infinite loop
         var middleIndex = Math.floor((highestIndex + lowestIndex)/2);
         if (items[middleIndex] == item) {
             console.log("Lowest: " + lowestIndex)
