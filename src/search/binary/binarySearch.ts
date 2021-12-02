@@ -1,26 +1,41 @@
 import { NO_MATCH } from "../common"
 
-const alphabet =["abcdefghijklmnopqrstuvwxyz"]
-
 const binarySearch = (items: any[], item: any) => {
-    let lowestIndex:number = 0;
-    let highestIndex:number = items.length - 1;
-    let completed:boolean = false
+    let result = null
+    let lowestPointer:number = 0;
+    let highestPointer:number = items.length - 1;
 
     if (typeof(item) === "number"){
-        while ((lowestIndex <= highestIndex) && completed){ // Infinite loop
-            let middleIndex = lowestIndex + Math.floor((highestIndex - lowestIndex)/2);
-            let guess = items[middleIndex];
-            if (guess === item) {
-                completed = true
-                return middleIndex;
-            } else if (items[middleIndex] < item){
-                lowestIndex = middleIndex + 1;
+        while (lowestPointer <= highestPointer && result == null){
+            let midPointer = lowestPointer + Math.floor((highestPointer - lowestPointer)/2);
+            let result = items[midPointer];
+            if (items[midPointer] === item) {
+                result === items[midPointer]
+                console.log(result)
+                return result;
+            } else if (items[midPointer] < item){
+                if (midPointer === items.length){
+                    console.log(midPointer)
+                    console.log(result)
+                    return NO_MATCH
+                }
+                lowestPointer = midPointer + 1;
+            }else if (lowestPointer === highestPointer){
+                console.log(lowestPointer)
+                console.log(highestPointer)
+                return NO_MATCH
             } else {
-                lowestIndex = middleIndex - 1;
+                if (midPointer === 0){
+                    console.log(lowestPointer)
+                    console.log(highestPointer)
+                    console.log(midPointer)
+                    return NO_MATCH
+                }
+                highestPointer = midPointer - 1;
             }
-        } return NO_MATCH;
+        } return NO_MATCH
     }
 }
+// returns 7 not 5
 
 export default binarySearch;
