@@ -14,4 +14,3 @@ const binarySearch = (items: any[], item: any) => {
     } return NO_MATCH
 }
 export default binarySearch;
-

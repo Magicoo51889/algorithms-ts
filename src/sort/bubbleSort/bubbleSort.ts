@@ -2,21 +2,21 @@ import { SortAlgorithm } from "../common";
 import swap from "../swap";
 
 const bubbleSort: SortAlgorithm<any> = <T>(items: T[]): T[] => {
-    let output_list = items
-
+    let output_list = items.slice()
+// The current position for the pointer to evaluate in this iteration
     for (let t = 0; t < items.length; t++) {
         var swap_made: boolean = false
-
-        for (let c = t - 1; c++;) {
+        for (let c = 0; c < items.length; c++) {
             if (output_list[c] > output_list[c + 1]){
                 swap_made = true
-                swap(output_list, c, c + 1);
+                let swap = output_list[c]
+                output_list[c] = output_list[c+1];
+                output_list[c+1] = swap
             }
-        } if(swap_made === false){
+        }if (true != swap_made){ // Early exit to prevent overwrites
             break
         } 
-    }
-    return output_list;
+    }return output_list;
 }
 
 export default bubbleSort;

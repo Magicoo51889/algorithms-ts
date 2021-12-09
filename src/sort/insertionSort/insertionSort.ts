@@ -11,10 +11,10 @@ const insertionSort: SortAlgorithm<any> = <T>(items: T[]): T[] => {
         while (item_place > 0){
             let lower: number = item_place - 1;
             let upper: number = item_place;
-
+ // Returns -1 if the first item is higher than the second
             if (output_list[lower] > item_to_place){
                 swap(output_list, lower, upper)
-            } else {
+            } else { // Checks if item can be placed early 
                 item_place = upper
                 break
             } item_place -= 1
